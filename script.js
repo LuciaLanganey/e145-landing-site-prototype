@@ -73,3 +73,10 @@ window.addEventListener("message", (e) => {
     /* ignore parse errors */
   }
 });
+
+fetch('/api/env')
+  .then(res => res.json())
+  .then(data => {
+    document.title = data.siteName; // update page title
+    document.getElementById('site-name').textContent = data.siteName; // update text on page
+  });
