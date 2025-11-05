@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Shoppers — Thrift Smarter with Circular Threads</title>
+    <meta
+      name="description"
+      content="Browse real thrift store inventory online before you go. Find your perfect piece, check availability, then try on and buy in person at the same great prices."
+    />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-SGL8RNQFWP"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-SGL8RNQFWP");
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="bg-background text-foreground font-sans antialiased">
+    <!-- Header -->
+    <header class="border-b bg-background/95 backdrop-blur sticky top-0 z-50">
+      <div
+        class="max-w-6xl mx-auto py-4 px-6 flex justify-between items-center"
+      >
+        <div class="flex items-center gap-2">
+          <div
+            class="h-8 w-8 rounded-md bg-primary flex items-center justify-center"
+          >
+            <svg
+              class="w-5 h-5 text-primary-foreground"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+              />
+            </svg>
+          </div>
+          <a href="index.html" class="font-display text-xl font-bold"
+            >Circular Threads</a
+          >
+        </div>
+        <nav class="hidden md:flex gap-6 text-sm font-medium">
+          <a
+            href="index.html"
+            class="text-muted-foreground hover:text-foreground transition"
+            >Home</a
+          >
+          <a
+            href="stores.html"
+            class="text-muted-foreground hover:text-foreground transition"
+            >For Stores</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section
+      class="max-w-6xl mx-auto px-6 py-20 md:py-28"
+      data-impression="shoppers_hero_section"
+    >
+      <div class="max-w-4xl mx-auto text-center">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+            />
+          </svg>
+          Launching soon in your area
+        </div>
+
+        <h1
+          class="font-display text-4xl md:text-6xl font-bold leading-tight mb-6"
+        >
+          Your Mission:
+          <span class="text-primary">Find the perfect thrift</span>
+        </h1>
+
+        <p
+          class="text-xl text-muted-foreground mb-10 leading-relaxed max-w-3xl mx-auto"
+        >
+          We believe sustainable fashion should be effortless. Browse what's
+          actually in stock at your local thrift stores online, then visit to
+          try on and buy. No more guessing games. No more wasted trips.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <a
+            href="#how-it-works"
+            class="px-8 py-4 rounded-lg border-2 border-border bg-card hover-elevate font-semibold text-center transition-all"
+          >
+            See How It Works
+          </a>
+        </div>
+
+        <div
+          class="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground"
+        >
+          <div class="flex items-center gap-2">
+            <svg
+              class="w-5 h-5 text-primary"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span>100% free to use</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg
+              class="w-5 h-5 text-primary"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span>Same thrift store prices</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg
+              class="w-5 h-5 text-primary"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span>Try before you buy</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="pilot-signup"
+      class="py-20"
+      data-impression="shoppers_signup_section"
+    >
+      <div class="max-w-2xl mx-auto px-6">
+        <div class="text-center mb-8">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+            Get Early Access
+          </h2>
+          <div class="bg-card rounded-xl p-8 border border-border shadow-lg">
+            <iframe
+              data-tally-src="https://tally.so/embed/aQNO5X?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              loading="lazy"
+              width="100%"
+              height="319"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="Get Early Access"
+            ></iframe>
+            <script>
+              var d = document,
+                w = "https://tally.so/widgets/embed.js",
+                v = function () {
+                  "undefined" != typeof Tally
+                    ? Tally.loadEmbeds()
+                    : d
+                        .querySelectorAll("iframe[data-tally-src]:not([src])")
+                        .forEach(function (e) {
+                          e.src = e.dataset.tallySrc;
+                        });
+                };
+              if ("undefined" != typeof Tally) v();
+              else if (d.querySelector('script[src="' + w + '"]') == null) {
+                var s = d.createElement("script");
+                (s.src = w),
+                  (s.onload = v),
+                  (s.onerror = v),
+                  d.body.appendChild(s);
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section
+      class="bg-muted/30 py-16"
+      data-impression="shoppers_features_section"
+    >
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-3xl font-bold mb-4">Sound Familiar?</h2>
+          <p class="text-lg text-muted-foreground">We've all been there...</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-card border border-border rounded-lg p-6">
+            <div class="text-4xl mb-3">😩</div>
+            <p class="text-muted-foreground">
+              Spending hours digging through racks with nothing to show for it
+            </p>
+          </div>
+          <div class="bg-card border border-border rounded-lg p-6">
+            <div class="text-4xl mb-3">🤷</div>
+            <p class="text-muted-foreground">
+              Driving to multiple stores hoping they have your size
+            </p>
+          </div>
+          <div class="bg-card border border-border rounded-lg p-6">
+            <div class="text-4xl mb-3">😤</div>
+            <p class="text-muted-foreground">
+              Finding the perfect piece online but having to pay shipping +
+              markup
+            </p>
+          </div>
+          <div class="bg-card border border-border rounded-lg p-6">
+            <div class="text-4xl mb-3">🌍</div>
+            <p class="text-muted-foreground">
+              Wanting to shop sustainably but finding it too inconvenient
+            </p>
+          </div>
+        </div>
+        <div class="text-center mt-10">
+          <p class="text-xl font-medium">There's a better way. 👇</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section
+      id="how-it-works"
+      class="py-20"
+      data-impression="shoppers_how_it_works_section"
+    >
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+            How Circular Threads Works
+          </h2>
+          <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+            The convenience of online shopping meets the joy of in-person
+            thrifting
+          </p>
+        </div>
+
+        <div class="space-y-16">
+          <!-- Step 1 -->
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4"
+              >
+                Step 1
+              </div>
+              <h3 class="font-display text-2xl md:text-3xl font-bold mb-4">
+                Browse Real Inventory Online
+              </h3>
+              <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+                Search by style, brand, size, color—whatever you're looking for.
+                See actual photos of items currently hanging in your local
+                thrift stores. Filter by distance to find what's nearby.
+              </p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="w-6 h-6 text-primary flex-shrink-0 mt-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>Search across multiple stores at once</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="w-6 h-6 text-primary flex-shrink-0 mt-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>Save your favorites for later</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="w-6 h-6 text-primary flex-shrink-0 mt-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>Get notified when new items match your style</span>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="order-1 md:order-2 rounded-2xl border-2 border-primary/20 p-2 bg-gradient-to-br from-primary/5 to-transparent"
+            >
+              <div
+                class="bg-card rounded-xl p-8 h-64 flex items-center justify-center border border-border"
+              >
+                <div class="text-center text-muted-foreground">
+                  <svg
+                    class="w-20 h-20 mx-auto mb-4 text-primary"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
+                  <p class="font-medium">Search Interface Preview</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div
+              class="rounded-2xl border-2 border-primary/20 p-2 bg-gradient-to-br from-primary/5 to-transparent"
+            >
+              <div
+                class="bg-card rounded-xl p-8 h-64 flex items-center justify-center border border-border"
+              >
+                <div class="text-center text-muted-foreground">
+                  <svg
+                    class="w-20 h-20 mx-auto mb-4 text-primary"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <p class="font-medium">Real-Time Availability</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4"
+              >
+                Step 2
+              </div>
+              <h3 class="font-display text-2xl md:text-3xl font-bold mb-4">
+                Check If It's Still There
+              </h3>
+              <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+                Items are marked sold as soon as someone purchases them
+                in-store. See real-time availability so you don't waste gas
+                driving to a store for something that's already gone.
+              </p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="w-6 h-6 text-primary flex-shrink-0 mt-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>Live inventory updates</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="w-6 h-6 text-primary flex-shrink-0 mt-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>Know exactly which store has what</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="w-6 h-6 text-primary flex-shrink-0 mt-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>Plan efficient multi-store trips</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4"
+              >
+                Step 3
+              </div>
+              <h3 class="font-display text-2xl md:text-3xl font-bold mb-4">
+                Visit, Try On, Buy
+              </h3>
+              <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+                Head to the store with confidence. Try everything on. Make sure
+                it fits and feels right. Pay the same price you'd pay walking in
+                off the street—no markups, no shipping fees.
+              </p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="w-6 h-6 text-primary flex-shrink-0 mt-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>Experience the thrill of the find</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="w-6 h-6 text-primary flex-shrink-0 mt-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>Support local businesses</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="w-6 h-6 text-primary flex-shrink-0 mt-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>Zero carbon footprint from shipping</span>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="order-1 md:order-2 rounded-2xl border-2 border-primary/20 p-2 bg-gradient-to-br from-primary/5 to-transparent"
+            >
+              <div
+                class="bg-card rounded-xl p-8 h-64 flex items-center justify-center border border-border"
+              >
+                <div class="text-center text-muted-foreground">
+                  <svg
+                    class="w-20 h-20 mx-auto mb-4 text-primary"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                    />
+                  </svg>
+                  <p class="font-medium">In-Store Experience</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section
+      class="bg-muted/30 py-20"
+      data-impression="shoppers_benefits_section"
+    >
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+            Why You'll Love It
+          </h2>
+          <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+            All the benefits of thrifting, minus the hassle
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="text-center space-y-4">
+            <div class="flex justify-center">
+              <div
+                class="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20"
+              >
+                <svg
+                  class="w-7 h-7 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display text-xl font-semibold">Save Time</h3>
+            <p class="text-muted-foreground leading-relaxed">
+              No more driving store to store hoping to find something. Browse
+              online, visit once, find what you love.
+            </p>
+          </div>
+
+          <div class="text-center space-y-4">
+            <div class="flex justify-center">
+              <div
+                class="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20"
+              >
+                <svg
+                  class="w-7 h-7 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display text-xl font-semibold">Save Money</h3>
+            <p class="text-muted-foreground leading-relaxed">
+              Pay thrift store prices, not reseller markups. No shipping fees.
+              Just great deals on quality pieces.
+            </p>
+          </div>
+
+          <div class="text-center space-y-4">
+            <div class="flex justify-center">
+              <div
+                class="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20"
+              >
+                <svg
+                  class="w-7 h-7 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display text-xl font-semibold">Shop Sustainably</h3>
+            <p class="text-muted-foreground leading-relaxed">
+              Reduce fashion waste and carbon emissions. Every thrifted item is
+              one less in a landfill.
+            </p>
+          </div>
+
+          <div class="text-center space-y-4">
+            <div class="flex justify-center">
+              <div
+                class="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20"
+              >
+                <svg
+                  class="w-7 h-7 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display text-xl font-semibold">Support Local</h3>
+            <p class="text-muted-foreground leading-relaxed">
+              Keep your money in the community. Help neighborhood thrift stores
+              thrive.
+            </p>
+          </div>
+
+          <div class="text-center space-y-4">
+            <div class="flex justify-center">
+              <div
+                class="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20"
+              >
+                <svg
+                  class="w-7 h-7 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display text-xl font-semibold">
+              Find Unique Pieces
+            </h3>
+            <p class="text-muted-foreground leading-relaxed">
+              Discover one-of-a-kind items you won't find anywhere else. Stand
+              out from the crowd.
+            </p>
+          </div>
+
+          <div class="text-center space-y-4">
+            <div class="flex justify-center">
+              <div
+                class="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20"
+              >
+                <svg
+                  class="w-7 h-7 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-display text-xl font-semibold">No Regrets</h3>
+            <p class="text-muted-foreground leading-relaxed">
+              Try everything on before you buy. Make sure it fits perfectly. No
+              more online shopping disappointments
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Poll Section -->
+    <section class="bg-muted/30 py-20" data-impression="shoppers_poll_section">
+      <div class="max-w-2xl mx-auto px-6">
+        <h3 class="font-display text-2xl font-bold text-center mb-8">
+          Would you use this?
+        </h3>
+        <div class="bg-card rounded-lg p-6 border border-border">
+          <iframe
+            data-tally-src="https://tally.so/embed/Gxveo2?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="157"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Would you use this service? - Shoppers"
+          ></iframe>
+          <script>
+            var d = document,
+              w = "https://tally.so/widgets/embed.js",
+              v = function () {
+                "undefined" != typeof Tally
+                  ? Tally.loadEmbeds()
+                  : d
+                      .querySelectorAll("iframe[data-tally-src]:not([src])")
+                      .forEach(function (e) {
+                        e.src = e.dataset.tallySrc;
+                      });
+              };
+            if ("undefined" != typeof Tally) v();
+            else if (d.querySelector('script[src="' + w + '"]') == null) {
+              var s = d.createElement("script");
+              (s.src = w),
+                (s.onload = v),
+                (s.onerror = v),
+                d.body.appendChild(s);
+            }
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t py-10 px-6">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
+      >
+        <div class="text-sm text-muted-foreground">
+          © 2025 Circular Threads. Supporting local thrift stores.
+        </div>
+        <div class="flex gap-6 text-sm">
+          <a
+            href="index.html"
+            class="text-muted-foreground hover:text-foreground transition"
+            >Home</a
+          >
+          <a
+            href="shoppers.html"
+            class="text-muted-foreground hover:text-foreground transition"
+            >For Shoppers</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="script.js" defer></script>
+  </body>
+</html>
