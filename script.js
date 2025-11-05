@@ -77,6 +77,20 @@ window.addEventListener("message", (e) => {
 fetch('/api/env')
   .then(res => res.json())
   .then(data => {
-    document.title = data.siteName; // update page title
-    document.getElementById('site-name').textContent = data.siteName; // update text on page
-  });
+    const { siteName } = data;
+
+    // Update title
+    document.title = siteName;
+
+    // Replace all occurrences
+    document.querySelectorAll('.brand-name').forEach(el => {
+      el.textContent = siteName;
+    });
+
+    // Example: use inside sentences dynamically
+    const aboutText = document.getElementById('about-text');
+    if (aboutText) {
+      aboutText.textContent = `At ${siteName}, we help brands unlock circularity insights.`;
+    }
+  })
+  .catch(err => console.error('Error loading env vars:', err));
