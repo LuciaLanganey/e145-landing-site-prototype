@@ -74,23 +74,20 @@ window.addEventListener("message", (e) => {
   }
 });
 
-fetch('/api/env')
+etch("/api/env")
   .then(res => res.json())
   .then(data => {
     const { siteName } = data;
 
-    // Update title
-    document.title = siteName;
+    // ✅ Update document title
+    document.title = `${siteName} — Find Your Perfect Thrift. Browse Online, Buy Local.`;
 
-    // Replace all occurrences
-    document.querySelectorAll('.brand-name').forEach(el => {
+    document.querySelectorAll(".brand-name").forEach(el => {
       el.textContent = siteName;
     });
 
-    // Example: use inside sentences dynamically
-    const aboutText = document.getElementById('about-text');
-    if (aboutText) {
-      aboutText.textContent = `At ${siteName}, we help brands unlock circularity insights.`;
-    }
+    document.querySelectorAll("[data-template]").forEach(el => {
+      el.textContent = el.dataset.template.replace("{{SITE_NAME}}", siteName);
+    });
   })
-  .catch(err => console.error('Error loading env vars:', err));
+  .catch(err => console.error("Error loading site name:", err));
