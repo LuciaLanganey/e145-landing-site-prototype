@@ -79,15 +79,15 @@ fetch("/api/env")
   .then(data => {
     const { siteName } = data;
 
-    // ✅ Update document title
+    // ✅ Update <title>
     document.title = `${siteName} — Find Your Perfect Thrift. Browse Online, Buy Local.`;
 
+    // ✅ Replace brand-name elements
     document.querySelectorAll(".brand-name").forEach(el => {
       el.textContent = siteName;
     });
 
-    document.querySelectorAll("[data-template]").forEach(el => {
-      el.textContent = el.dataset.template.replace("{{SITE_NAME}}", siteName);
-    });
+    // ✅ Replace all {{SITE_NAME}} placeholders anywhere in the DOM
+    document.body.innerHTML = document.body.innerHTML.replaceAll("{{SITE_NAME}}", siteName);
   })
   .catch(err => console.error("Error loading site name:", err));
