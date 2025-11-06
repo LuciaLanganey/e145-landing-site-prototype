@@ -74,7 +74,7 @@ window.addEventListener("message", (e) => {
   }
 });
 
-etch("/api/env")
+fetch("/api/env")
   .then(res => res.json())
   .then(data => {
     const { siteName } = data;
