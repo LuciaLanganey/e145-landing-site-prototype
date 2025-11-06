@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Circular Threads — Find Your Perfect Thrift. Browse Online, Buy Local.
+      Loading...
     </title>
     <meta
       name="description"
@@ -30,9 +30,14 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      body[data-loading="true"] {
+        visibility: hidden;
+      }
+    </style>
   </head>
 
-  <body class="bg-background text-foreground font-sans antialiased">
+  <body data-loading="true" class="bg-background text-foreground font-sans antialiased">
     <!-- Header -->
     <header class="border-b bg-background/95 backdrop-blur sticky top-0 z-50">
       <div
@@ -56,7 +61,7 @@
               />
             </svg>
           </div>
-          <span class="font-display text-xl font-bold">Circular Threads</span>
+          <span class="font-display text-xl font-bold">{{SITE_NAME}}</span>
         </div>
         <nav class="hidden md:flex gap-6 text-sm font-medium">
           <a
@@ -293,7 +298,7 @@
       <div class="max-w-6xl mx-auto px-6">
         <div class="text-center mb-16">
           <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
-            Why Circular Threads?
+            Why {{SITE_NAME}}?
           </h2>
           <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
             The best of online convenience meets the joy of in-person thrifting
@@ -516,7 +521,7 @@
         class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
       >
         <div class="text-sm text-muted-foreground">
-          © 2025 Circular Threads. Making sustainable fashion effortless.
+          © 2025 {{SITE_NAME}}. Making sustainable fashion effortless.
         </div>
         <div class="flex gap-6 text-sm">
           <a

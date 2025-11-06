@@ -73,3 +73,19 @@ window.addEventListener("message", (e) => {
     /* ignore parse errors */
   }
 });
+
+fetch("/api/env")
+  .then(res => res.json())
+  .then(data => {
+    const { siteName } = data;
+
+    document.title = `${siteName} — Find Your Perfect Thrift. Browse Online, Buy Local.`;
+
+    document.querySelectorAll(".brand-name").forEach(el => {
+      el.textContent = siteName;
+    });
+    document.body.innerHTML = document.body.innerHTML.replaceAll("{{SITE_NAME}}", siteName);
+    document.body.dataset.loading = "false";
+    document.body.style.visibility = "visible";
+  })
+  .catch(err => console.error("Error loading site name:", err));

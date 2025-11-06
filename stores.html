@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thrift Stores — Increase Foot Traffic with Circular Threads</title>
+    <title>Thrift Stores — Increase Foot Traffic with {{SITE_NAME}}</title>
     <meta
       name="description"
       content="Bring your thrift store inventory online with AI-powered tools. Attract new customers, boost foot traffic, and get insights—without losing your in-store charm."
@@ -28,9 +28,14 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      body[data-loading="true"] {
+        visibility: hidden;
+      }
+    </style>
   </head>
 
-  <body class="bg-background text-foreground font-sans antialiased">
+  <body data-loading="true" class="bg-background text-foreground font-sans antialiased">
     <!-- Header -->
     <header class="border-b bg-background/95 backdrop-blur sticky top-0 z-50">
       <div
@@ -55,7 +60,7 @@
             </svg>
           </div>
           <a href="index.html" class="font-display text-xl font-bold"
-            >Circular Threads</a
+            >{{SITE_NAME}}</a
           >
         </div>
         <nav class="hidden md:flex gap-6 text-sm font-medium">
@@ -528,7 +533,7 @@
           help them thrive in the digital age—without losing what makes them
           special."
         </blockquote>
-        <p class="text-muted-foreground">— The Circular Threads Team</p>
+        <p class="text-muted-foreground">— The {{SITE_NAME}} Team</p>
       </div>
     </section>
 
@@ -654,7 +659,7 @@
         class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
       >
         <div class="text-sm text-muted-foreground">
-          © 2025 Circular Threads. Supporting local thrift stores.
+          © 2025 {{SITE_NAME}}. Supporting local thrift stores.
         </div>
         <div class="flex gap-6 text-sm">
           <a
