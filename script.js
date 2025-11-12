@@ -1,3 +1,22 @@
+fetch("/api/env")
+  .then(res => res.json())
+  .then(data => {
+    const { siteName } = data;
+
+    // Make site name globally available
+    window.__SITE_NAME__ = siteName;
+
+    // Update title and placeholders
+    document.title = `${siteName} — Find Your Perfect Thrift. Browse Online, Buy Local.`;
+    document.querySelectorAll(".brand-name").forEach(el => {
+      el.textContent = siteName;
+    });
+    document.body.innerHTML = document.body.innerHTML.replaceAll("{{SITE_NAME}}", siteName);
+    document.body.dataset.loading = "false";
+    document.body.style.visibility = "visible";
+  })
+  .catch(err => console.error("Error loading site name:", err));
+
 // Click tracking
 document.querySelectorAll("[data-event]").forEach((el) => {
   el.addEventListener("click", (e) => {
@@ -6,6 +25,7 @@ document.querySelectorAll("[data-event]").forEach((el) => {
     const params = {
       event_label: el.textContent?.trim().slice(0, 50) || name,
       page_location: window.location.pathname,
+      site_name: window.__SITE_NAME__ || "Unknown Site",
     };
     if (window.gtag) gtag("event", name, params);
   });
@@ -25,6 +45,7 @@ if ("IntersectionObserver" in window && impressionEls.length) {
             gtag("event", "impression", {
               impression_name: key,
               page_location: location.pathname,
+              site_name: window.__SITE_NAME__ || "Unknown Site",
             });
           }
         }
@@ -46,6 +67,7 @@ if ("IntersectionObserver" in window && impressionEls.length) {
       gtag("event", "time_on_page", {
         seconds_on_page: seconds,
         page_location: window.location.pathname,
+        site_name: window.__SITE_NAME__ || "Unknown Site",
       });
     }
   }
@@ -67,25 +89,10 @@ window.addEventListener("message", (e) => {
         gtag("event", "tally_form_submit", {
           form_id: data?.formId || "tally",
           page_location: window.location.pathname,
+          site_name: window.__SITE_NAME__ || "Unknown Site",
         });
     }
   } catch (err) {
     /* ignore parse errors */
   }
 });
-
-fetch("/api/env")
-  .then(res => res.json())
-  .then(data => {
-    const { siteName } = data;
-
-    document.title = `${siteName} — Find Your Perfect Thrift. Browse Online, Buy Local.`;
-
-    document.querySelectorAll(".brand-name").forEach(el => {
-      el.textContent = siteName;
-    });
-    document.body.innerHTML = document.body.innerHTML.replaceAll("{{SITE_NAME}}", siteName);
-    document.body.dataset.loading = "false";
-    document.body.style.visibility = "visible";
-  })
-  .catch(err => console.error("Error loading site name:", err));
